@@ -1,0 +1,33 @@
+.book {
+    // color: #fff;
+    display: flex;
+    border: 2px gray solid;
+    border-radius: 4px;
+    padding: 1rem;
+    margin: 1rem;
+    background: #fff;
+    width: auto;
+
+    .header {
+        margin-left: 1rem;
+        h1 {
+            font-size: 1.5rem;
+        }
+        h2 {
+            font-weight: 400;
+            font-style: italic;
+        }
+    }
+}
+
+.btn {
+    margin:0 0.5rem;
+    background: #3676c1;
+    &:hover {
+        background: #1565C0;
+        transform: translateY(-2px);
+    }
+    .mat-icon {
+        color: #fff;
+    }
+}

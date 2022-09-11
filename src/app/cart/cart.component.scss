@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+}
+
+.btn {
+    position: relative;
+    margin: 0 2rem;
+    background: #fff;
+    span {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        display: inline-block;
+        font-size: 1rem;
+        font-weight: bold;
+        color: #fff;
+        background: #3676c1;
+        height: 26px;
+        width: 26px;
+        border-radius: 50%;
+    }
+}
+
+.items {
+    @apply flex flex-col w-full mx-2;
+    .item {
+        @apply flex justify-start items-center p-2 my-2 bg-slate-100 text-2xl rounded-md w-full;
+    } 
+}

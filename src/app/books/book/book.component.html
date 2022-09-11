@@ -1,0 +1,20 @@
+<div class="book">
+    <img class="rounded" [src]="book.img" [alt]="book.name" width="200">
+    <div class="header">
+        <h1>{{book.name | titlecase}}</h1>
+        <h2>{{book.author}}</h2>
+        <p>{{book.price | currency:'CHF '}}</p>
+
+        <div class="flex">
+            <button class="flex items-center justify-center mr-2 mt-2 relative bg-blue-500 text-slate-100 rounded-full h-14 w-14">
+                <mat-icon>search</mat-icon>
+            </button>
+            <button *ngIf="!isInCart" (click)="addToCart()" class="flex items-center justify-center mt-2 relative bg-blue-500 text-slate-100 rounded-full h-14 w-14" >
+                <mat-icon>add_shopping_cart</mat-icon>
+            </button>
+            <button *ngIf="isInCart" (click)="removeFromCart()" class="flex items-center justify-center mt-2 relative bg-blue-500 text-slate-100 rounded-full h-14 w-14">
+                <mat-icon>remove_shopping_cart</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>

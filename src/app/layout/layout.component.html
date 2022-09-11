@@ -1,0 +1,26 @@
+<div class="w-full flex justify-between bg-slate-200 p-2">
+    <a routerLink=""><h1 class="mx-2 text-3xl font-extrabold text-slate-500 flex items-center">BookStore</h1></a>
+    <div class="flex">
+        <!-- <button class="flex items-center justify-center mx-2 relative bg-green-700 hover:bg-green-900 text-slate-100 rounded-full h-10 w-10">
+            <a class="contents" routerLink=""><mat-icon>library_books</mat-icon></a>
+        </button> -->
+        <button *ngIf="isAuthenticated()" class="flex items-center justify-center mx-2 relative bg-blue-700 hover:bg-blue-900 text-slate-100 rounded-full h-10 w-10">
+            <a class="contents" routerLink="cart"><mat-icon>shopping_cart</mat-icon></a>
+            <span class="absolute top-5 right-0 rounded-full h-6 w-6 bg-orange-500" *ngIf="getCart().length > 0">{{getCart().length}}</span>
+        </button>
+        <ng-container *ngIf="!isAuthenticated()">
+            <button class="flex items-center justify-center mx-2 px-2 relative bg-slate-500 hover:bg-slate-800 text-slate-100 font-semibold rounded-full">
+                <a class="contents" routerLink="register">Register</a>
+            </button>
+            <button class="flex items-center justify-center mx-2 px-2 relative bg-blue-700 hover:bg-blue-900 text-slate-100 font-semibold rounded-full">
+                <a class="contents" routerLink="login">Login</a>
+            </button>
+        </ng-container>
+        <ng-container *ngIf="isAuthenticated()">
+            <button (click)="logout()" class="flex items-center justify-center mx-2 px-2 relative bg-red-700 hover:bg-red-900 text-slate-100 font-semibold rounded-full">
+                <a class="contents">Logout</a>
+            </button>
+        </ng-container>
+        
+    </div>
+</div>

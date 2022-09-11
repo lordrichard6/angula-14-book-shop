@@ -1,0 +1,39 @@
+<div class="flex flex-col items-center mt-6 h-screen w-full">
+    <h1 class="text-slate-100 text-3xl font-extrabold mb-4">Register</h1>
+    <form (ngSubmit)="submit()" #myForm="ngForm" class="w-2/5">
+        <div class="flex flex-col">
+            <label class="text-slate-100 text-xl" for="email">Email</label>
+            <input type="email" id="email" placeholder="Your Email" class="bg-slate-100 rounded p-2 w-full"
+                [(ngModel)]="form.email" name="email" #email="ngModel" required>
+            <span *ngIf="email.invalid && (email.dirty || email.touched)"
+                class="mt-1 p-2 rounded bg-red-400 text-red-800 border-red-800">Email must be
+                valid</span>
+        </div>
+        <div class="flex flex-col mt-4">
+            <label class="text-slate-100 text-xl" for="password">Password</label>
+            <input type="password" id="password" placeholder="Something secret" class="bg-slate-100 rounded p-2 w-full"
+                [(ngModel)]="form.password" name="password" #password="ngModel" required>
+            <span *ngIf="password.invalid && (password.dirty || password.touched)"
+                class="mt-1 p-2 rounded bg-red-400 text-red-800 border-red-800">Please enter a valid password</span>
+        </div>
+        <div class="flex flex-col mt-4">
+            <label class="text-slate-100 text-xl" for="password">Confirm password</label>
+            <input type="password" id="confirmPassword" placeholder="Type the pass again"
+                class="bg-slate-100 rounded p-2 w-full" [(ngModel)]="form.confirmPassword" name="confirmPassword"
+                #confirmPassword="ngModel" required>
+            <span *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)"
+                class="mt-1 p-2 rounded bg-red-400 text-red-800 border-red-800">Passwords don&#39;t match</span>
+        </div>
+        <div class="flex flex-col mt-6">
+            <button type="submit" [disabled]="myForm.form.invalid"
+                class="bg-green-600 hover:bg-green-800 text-slate-100 rounded p-2 w-full cursor-pointer">
+                <ng-container *ngIf="isLoading()">
+                    Loading...
+                </ng-container>
+                <ng-container *ngIf="!isLoading()">
+                    Submit
+                </ng-container>
+            </button>
+        </div>
+    </form>
+</div>

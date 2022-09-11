@@ -1,0 +1,21 @@
+<div class="flex">
+    <div class="items">
+        <ng-container *ngIf="getCart().length > 0">
+            <div class="item" *ngFor="let book of getCart()">
+                <img [src]="book.img" [alt]="book.name" width="60">
+                <div class="h-full flex flex-col justify-between ml-2">
+                    <span class="font-bold">{{book.name | titlecase}}</span>
+                    <span class="font-light">{{book.author}}</span>
+                    <span class="text-red-600 font-extrabold">{{book.price | currency:'CHF '}}</span>
+                </div>
+                <button (click)="removeFromCart()" class="flex items-center justify-center ml-auto mr-4 relative bg-red-700 text-slate-100 rounded-full h-14 w-14">
+                    <mat-icon>remove_shopping_cart</mat-icon>
+                </button>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="getCart().length == 0">
+            <div class="item">No books on your Cart</div>
+        </ng-container>
+        <!-- <div class="text-red-600 font-extrabold bg-slate-100 w-fit px-4 py-2 rounded-md text-4xl">total</div> -->
+    </div>
+</div>
